@@ -9,6 +9,8 @@ public class Main {
 		
 		System.out.println(String.format("Circle Area :%.2f  \nRectangle Area : %.2f",c.getArea(),r.getArea()));
 		
+		
+		
 
 	}
 

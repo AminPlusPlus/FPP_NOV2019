@@ -1,9 +1,9 @@
 package nov_27_lab;
 
 public class Account {
-	double balance;
-	AccountType accountType;
-	Employee employee;
+	private double balance;
+	private AccountType accountType;
+	private Employee employee;
 
 	public Account(AccountType accountType, Employee employee) {
 		this.accountType = accountType;
@@ -17,8 +17,8 @@ public class Account {
 	}
 	
 	
-	public double getBalance() {
-		return balance;
+	public String getBalance() {
+		return Double.toString(balance);
 	}
 
 	public void makeDeposit(double amount ) {
@@ -26,12 +26,19 @@ public class Account {
 	}
 	
 	public boolean makeWithdraw(double amount ) {
+		
+		
+		if (amount > balance) return false;
+		
 		this.balance -= amount;
+		
 		return true;
 	}
 	
 	public String toString() {
-		return "to String";
+		return "Account type:" + this.accountType.toString() 
+				+ "\n "+
+				"Current bal:" + this.balance;
 	}
 	
 	
