@@ -36,8 +36,8 @@ public class Account {
 	}
 	
 	public String toString() {
-		return "Account type:" + this.accountType.toString() 
-				+ "\n "+
+		return "\nAccount type:" + this.accountType.toString() 
+				+ "\n"+
 				"Current bal:" + this.balance;
 	}
 	
