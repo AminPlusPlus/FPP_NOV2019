@@ -15,6 +15,9 @@ public class Main {
 		empls.add(Amin);
 		empls.add(Jim);
 		
+		
+	
+		
 		for (Employee e : empls){
 			System.out.println(String.format("name=%s , salary=%s", e.getName(),e.getSalary()));
 		}
