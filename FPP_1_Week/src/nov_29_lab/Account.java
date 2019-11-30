@@ -1,19 +1,19 @@
-package nov_27_lab;
+package nov_29_lab;
 
-public class Account {
+public abstract class Account {
+	
 	private double balance;
-	private AccountType accountType;
 	private Employee employee;
+		
+	public Account(Employee employee) {
 
-	public Account(AccountType accountType, Employee employee) {
-		this.accountType = accountType;
 		this.employee = employee;
 	}
 	
-	public Account(double balance,AccountType accountType, Employee employee) {
+	public Account(double balance, Employee employee) {
 		this.balance = balance;
-		this.accountType = accountType;
 		this.employee = employee;
+		
 	}
 	
 	
@@ -27,7 +27,6 @@ public class Account {
 	
 	public boolean makeWithdraw(double amount ) {
 		
-		
 		if (amount > balance) return false;
 		
 		this.balance -= amount;
@@ -36,11 +35,13 @@ public class Account {
 	}
 	
 	public String toString() {
-		return "\nAccount type:" + this.accountType.toString() 
+		return "\nAccount type:" + this.getAcctType().toString() 
 				+ "\n"+
 				"Current bal:" + this.balance;
 	}
+
 	
+	abstract public AccountType getAcctType();
 	
 	
 }
