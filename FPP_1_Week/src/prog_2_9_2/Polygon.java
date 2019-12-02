@@ -12,12 +12,7 @@ public interface Polygon {
 		return sumArray ;
 	}
 	default double computePerimeter() {
-
-		double sumArray = 0.0;
-		for (double i : getArrayOfSides())
-			sumArray+=i;
-		
-		return sumArray ;
+		return sum(getArrayOfSides()) ;
 
 	}
 }
