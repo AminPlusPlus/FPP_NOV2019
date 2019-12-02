@@ -1,12 +1,12 @@
 package nov_29_lab;
 
-public abstract class Account {
+public abstract class Account  {
 	
 	private double balance;
 	private Employee employee;
 		
 	public Account(Employee employee) {
-
+      
 		this.employee = employee;
 	}
 	
