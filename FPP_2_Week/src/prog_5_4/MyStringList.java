@@ -14,6 +14,11 @@ public class MyStringList {
 	
 	public void add(String s){
 			
+		if (size == strArray.length)
+			resize();
+		
+		strArray[size] = s;
+		size++;
 		
 	}
 	
@@ -23,7 +28,6 @@ public class MyStringList {
 	}
 	
 	public boolean find(String s){
-		
 		
 		for (int i = 0;i < strArray.length;i++) {
 			if (strArray[i].equals(s))
@@ -40,8 +44,8 @@ public class MyStringList {
 	
 	private void resize(){
 		String[] newResize = new String[size*2];
-		
 		System.arraycopy(strArray, 0, newResize, 0, size);
+		strArray = newResize;
 		
 	}
 	public String toString(){
