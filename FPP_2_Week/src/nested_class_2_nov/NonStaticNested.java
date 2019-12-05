@@ -49,23 +49,22 @@ public class NonStaticNested {
 					LocalClass c = new LocalClass();
 				}
 		
-		class LocalClass  {
+		class LocalClass extends NonStaticNested   {
+			 
+			@Override
+			void hello (){
+				x = 180;		
+				}
 			
-//			@Override
-//			void hello (){
-//				x = 180;
-//			}
+			int getMe() {
+				return x + 12;
+			}
 			
-//			int getMe() {
-//				return x + 12;
-//			}
-//			
-//			 public LocalClass() {
-//				 x = 12;
-//				 
-//				// hello();
-//
-//			 }	
+			 public LocalClass() {
+				 x = 12;
+				 
+
+			 }	
 			 
 			 
 		}
