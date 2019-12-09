@@ -25,7 +25,12 @@ public class DeleteElement {
 
 		System.out.println(Arrays.toString(nums));
 		//[4, 7, 1, 3, 0, 0, 0, 0] is the expected output.
-
+		
+		String s1 = null;
+		String s2 = null;
+		
+		System.out.println(s1.equals(s2));
+		
 	}
 
 }

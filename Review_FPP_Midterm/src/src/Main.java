@@ -2,21 +2,49 @@ package src;
 
 import java.util.Scanner;
 
-class AClass {
+import protect.Protect;
+import protect.SubProtect;
 
-	AClass(Main c){
-		String[] args = new String[] {"a", "b", "c"}; 
-		c.main(args);
-		
+class AClass extends Protect {
+
+	AClass(){
+		System.out.println("AClass : "+name);
 	}
 }
+
+
+class BClass extends AClass {
+	
+	BClass() {
+		System.out.println("BClass : "+name);
+	}
+	
+}
+
+class DClass extends SubProtect{
+	
+	DClass (){
+		System.out.println("DClass : "+name);
+	}
+}
+
+class StaticTest {
+	static int count= 0;
+	
+	StaticTest(){
+		count++;
+	}
+}
+
+
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		AClass a = new AClass(new Main());
+	    System.out.println(StaticTest.count);
 		
 	}
+	
 
 }
