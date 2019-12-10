@@ -1,5 +1,7 @@
 package prog_8_doubleLinkedList;
 
+import java.util.NoSuchElementException;
+
 public class MyStringLinkedList {
 
 	Node header;
@@ -143,7 +145,92 @@ public class MyStringLinkedList {
 	
 	
 	public int findIndex(String s) {
+		if (isEmpty())
+			throw new NoSuchElementException();
 		
+		Node currentNode = header.next;
+		for (int i = 0 ;i < size ;i++) {
+			
+			if (currentNode.value.equals(s))
+				return i;
+			currentNode = currentNode.next;
+		}
+		
+	    throw new NoSuchElementException();
+		
+	}
+	
+	
+	public String removeFirst() {
+		
+		if (isEmpty())
+			return "";
+		
+		size--;
+		
+		header.next = header.next.next;
+		header.next.previous = header;
+		
+		return header.next.value;
+	}
+	
+	public String removeLast() {
+		if (isEmpty())
+			return "";
+		
+		size--;
+		
+		Node currentNode = header.next;
+		
+		while (currentNode.next != null) 
+			currentNode = currentNode.next;
+		
+		currentNode.previous.next = null;
+		
+		return currentNode.value;
+	}
+	
+	
+	public boolean remove(int index) {
+		if (isEmpty() || index < 0 || index > size )
+			throw new NoSuchElementException();
+		
+		
+		if (index == 0) {
+			removeFirst();
+			return true;
+		}
+		
+		else if (index == size-1) {
+			removeLast();
+			return true;
+		}
+		
+		Node currentNode = header.next;
+		
+		for (int i = 0 ;i < index ;i++) {			
+			currentNode = currentNode.next;
+		
+		}
+		
+		System.out.println(currentNode.value);
+		
+		currentNode.previous.next = currentNode.next;
+		currentNode.next.previous = currentNode.previous;
+	
+
+	    return true;
+	} 
+	
+	
+	public boolean remove(String element) {
+		
+		if (isEmpty())
+			throw new NoSuchElementException();
+		
+		
+		
+		return true;
 	}
 	
 
@@ -185,6 +272,18 @@ public class MyStringLinkedList {
 		System.out.println("Get Index: " + list.get(4));
 		System.out.println("Get First: "+list.findFirst());
 		System.out.println("Get Last: "+list.findLast());
+		System.out.println("Get Last: "+list.findIndex("Jim"));
+		
+		System.out.println("Remove First: "+list.removeFirst());
+		System.out.println(list.size + ": " + list);
+		System.out.println("Remove Last: "+list.removeLast());
+		System.out.println(list.size + ": " + list);
+		
+		System.out.println("Remove by Index: "+list.remove(2));
+		System.out.println(list.size + ": " + list);
+		
+
+		
 
 	}
 }
