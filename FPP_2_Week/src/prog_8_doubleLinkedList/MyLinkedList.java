@@ -25,6 +25,7 @@ public interface MyLinkedList {
 //	Ex: 3
 	public Object findMin();
 	public Object findMax();
+	
 	public void sort();
 
 //	Ex: 4

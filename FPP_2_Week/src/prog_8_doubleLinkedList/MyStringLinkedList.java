@@ -213,11 +213,9 @@ public class MyStringLinkedList {
 		
 		}
 		
-		System.out.println(currentNode.value);
-		
 		currentNode.previous.next = currentNode.next;
 		currentNode.next.previous = currentNode.previous;
-	
+		size--;
 
 	    return true;
 	} 
@@ -228,9 +226,38 @@ public class MyStringLinkedList {
 		if (isEmpty())
 			throw new NoSuchElementException();
 		
+		Node currentNode = header.next;
+		
+		//if is data is equal next value from the header
+		if (currentNode.value.equals(element)) {
+			removeFirst();
+			return true;
+		}
 		
 		
-		return true;
+		Node node = header;
+		while (currentNode.next != null) {
+			
+			if (currentNode.value.equals(element)) {
+				size--;
+				currentNode.previous.next = currentNode.next;
+				currentNode.next.previous = currentNode.previous;
+				
+				return true;
+			}
+			
+			currentNode = currentNode.next;
+			
+		}
+		
+		if (currentNode.value.equals(element)) {
+			size--;
+			currentNode.previous.next = null;
+			return true;
+		}
+		
+		
+		return false;
 	}
 	
 
@@ -280,6 +307,12 @@ public class MyStringLinkedList {
 		System.out.println(list.size + ": " + list);
 		
 		System.out.println("Remove by Index: "+list.remove(2));
+		list.addLast("Milod");
+		list.addLast("Hamid");
+		System.out.println(list.size + ": " + list);
+		
+		
+		list.remove("Hamid");
 		System.out.println(list.size + ": " + list);
 		
 
