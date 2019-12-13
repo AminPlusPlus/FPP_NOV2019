@@ -1,4 +1,5 @@
-package prog_8_2;
+package prog_8_2_Solution;
+
 
 
 public class Main {
@@ -10,12 +11,13 @@ public class Main {
 		list.add("Bob");
 		list.add("Harry");
 		list.add("Steve");
+
 		System.out.println(list.size() + ": " + list);
 
-		list.insert("Jack",1);
+		list.insert("Anna",3);
 		System.out.println(list.size() + ": " + list);
 
-		list.sort();
+		//list.sort();
 		System.out.println(list.size() + ": " + list);
 
 

@@ -1,4 +1,4 @@
-package prog_8_2;
+package prog_8_2_Solution;
 
 import java.util.Arrays;
 
@@ -38,6 +38,8 @@ public class MinSort {
 	}
 	public static void main(String[] args){
 		int[] test = {21,13,1,-22, 51, 5, 18};
+		System.out.println(Arrays.toString(test));
+
 		MinSort ss = new MinSort(test);
 		ss.sort();
 		System.out.println(Arrays.toString(ss.arr));
