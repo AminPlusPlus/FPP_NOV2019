@@ -24,41 +24,40 @@ public class ArrayQueue {
 		if (isEmpty())
 			throw new IllegalStateException();
 		
+	
+		String dataDequeue = arr[front];
+		arr[front] = null;
+		front++;
 		
-		for (int i = 0;i<size;i++) {
-			System.out.println(arr[i]);
-		}
-		
-//		String dataDequeue = arr[front];
-//		size --;
-//		arr[front] = null;
-		
-		return "hey";
+		return dataDequeue;
 	}
 	
 	/** Insert: adds an element to the rear/end of the queue. */
 	public void enqueue(String s) { 
+		
 		if (isEmpty()){
 			front++;
 			arr[front] = s;
+			return;
 		}
 		
 		
-		if (isFull())
+		if (isFull()) 
 			resize();
+		
 		
 		size++;
 		rear++;
+		
 		arr[rear] = s;
-		
-		
 		
 	}
 	private void resize() {
 		
 		String[]newArr = new String[INITIAL_LENGTH*2];
-		System.arraycopy(newArr, 0, arr, 0, size);
-		System.out.println(Arrays.toString(newArr));
+		
+		System.arraycopy(arr, front, newArr, 0, size+1);
+		
 		arr = newArr;
 		
 	}
@@ -74,7 +73,7 @@ public class ArrayQueue {
 	public String toString() {
 		StringBuilder str  = new StringBuilder('[');
 		
-		for (int i = 0; i<size;i++) {
+		for (int i = front; i<=size;i++) {
 			str.append(arr[i] + ",");
 		}
 		
@@ -97,7 +96,10 @@ public class ArrayQueue {
      * The deque will be empty after this call returns.
      */
 	public void clear() {
-		
+		size = 0;
+		front = -1;
+		rear = 0;
+		arr = new String[INITIAL_LENGTH];
 	}
 
 	/* You may use this method to test your stack */
@@ -108,6 +110,7 @@ public class ArrayQueue {
 			System.out.println(ns.size()+" " + ns);
 			ns.enqueue("Harry");
 			System.out.println(ns.size()+" " + ns);
+			
 			ns.enqueue("Steve");
 			System.out.println(ns.size() +" "  + ns);
 			System.out.println("Dequeue Operation : " + ns.dequeue());
