@@ -3,6 +3,7 @@ package prog_11_3;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.HashMap;
 
 public class Main {
@@ -42,6 +43,9 @@ public class Main {
 		
 		List<Employee> notInList = EmployeeAdmin.findSsnIsNotInList(h, ssns);
 		System.out.println(notInList);
+		
+		System.out.println(2306996%16);
+	
 		
 	}
 
