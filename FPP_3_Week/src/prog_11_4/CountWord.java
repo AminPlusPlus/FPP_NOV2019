@@ -12,12 +12,15 @@ class CountWord {
 
 		//implement
 		for (String item : arr) {
+			
 			if(hmap.containsKey(item)) {
 				int value = hmap.get(item);
 				hmap.put(item, ++value);
-			} else {
-				hmap.put(item, 1);
+				continue;
 			}
+			
+			hmap.put(item, 1);
+			
 		}
 		
 		TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
