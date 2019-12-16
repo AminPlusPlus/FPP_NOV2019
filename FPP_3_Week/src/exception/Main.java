@@ -1,6 +1,5 @@
 package exception;
 
-import prog_12_2.UncheckedException;
 
 class Client {
 	
@@ -15,8 +14,8 @@ class Client {
 class CustomerService {
 	
 	public void searchUserById(int id) {
-		if (id<1)
-			throw new UncheckedException("Id cant be zero or negative");
+//		if (id<1)
+//			throw new CheckedException("Id cant be zero or negative");
 	}
 }
 
